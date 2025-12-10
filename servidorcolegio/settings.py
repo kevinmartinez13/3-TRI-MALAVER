@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.staticfiles', 
     'departamento',
     'edificio',
     'semestre',
@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'clasesesion',
     'matricula',
     'calificacion',
+    'servidorcolegio',
 ]
 
 MIDDLEWARE = [

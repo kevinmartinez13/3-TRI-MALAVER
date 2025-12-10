@@ -1,7 +1,7 @@
 from django.db import models
 
 class ClaseSesion(models.Model):
-    # Todas son relaciones externas a otras apps
+    
     curso = models.ForeignKey('curso.Curso', on_delete=models.CASCADE, related_name='sesiones')
     semestre = models.ForeignKey('semestre.Semestre', on_delete=models.CASCADE)
     profesor = models.ForeignKey('profesor.Profesor', on_delete=models.SET_NULL, null=True, blank=True)

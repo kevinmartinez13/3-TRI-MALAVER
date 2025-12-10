@@ -1,4 +1,3 @@
-
 from django.db import models
 
 class Estudiante(models.Model):

@@ -1,7 +1,6 @@
 from django.db import models
 
 class Matricula(models.Model):
-    # Relaciones externas
     estudiante = models.ForeignKey('estudiante.Estudiante', on_delete=models.CASCADE)
     clase_sesion = models.ForeignKey('clasesesion.ClaseSesion', on_delete=models.CASCADE)
     fecha_inscripcion = models.DateTimeField(auto_now_add=True)
