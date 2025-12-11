@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}Confirmar Borrado{% endblock %}
+
+{% block content %}
+  <h1>Confirmar borrado</h1>
+
+  <p>¿Estás seguro que quieres <strong>borrar permanentemente</strong> este aula?</p>
+
+  <ul>
+    <li><strong>ID:</strong> {{ aula.pk }}</li>
+    <li><strong>Número:</strong> {{ aula.numero }}</li>
+    <li><strong>Edificio:</strong> {{ aula.edificio }}</li>
+    <li><strong>Capacidad:</strong> {{ aula.capacidad }}</li>
+  </ul>
+
+  <p role="alert">Esta acción es <strong>permanente</strong> y no se puede deshacer.</p>
+
+  <form method="post" action="">
+    {% csrf_token %}
+    <button type="submit">Sí, borrar permanentemente</button>
+    <a href="{% url 'aula:listar' %}">Cancelar</a>
+  </form>
+
+  <!-- JS opcional: confirmación extra (no sustituye al POST) -->
+  <script>
+    // Solo si quieres una segunda confirmación en el cliente:
+    document.querySelector('form').addEventListener('submit', function(e){
+      if(!confirm('¿Realmente deseas borrar este aula? Esta acción no se puede deshacer.')){
+        e.preventDefault();
+      }
+    });
+  </script>
+{% endblock %}
+

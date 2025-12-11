@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>¿Seguro quieres borrar esta calificación?</h2>
+  <p>{{ object }}</p>
+  <form method="post">{% csrf_token %}
+    <button type="submit">Sí, borrar</button>
+  </form>
+  <a href="{% url 'calificacion:list' %}">Cancelar</a>
+{% endblock %}

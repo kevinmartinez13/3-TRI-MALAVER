@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Detalle</h2>
+  <p>Matrícula: {{ calificacion.matricula }}</p>
+  <p>Valor: {{ calificacion.valor }}</p>
+  <p>Comentarios: {{ calificacion.comentarios }}</p>
+  <a href="{% url 'calificacion:delete' calificacion.pk %}">Borrar</a>
+  <a href="{% url 'calificacion:list' %}">Volver</a>
+{% endblock %}

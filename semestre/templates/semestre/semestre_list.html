@@ -1,0 +1,23 @@
+﻿{% extends "base.html" %}
+{% block title %}Semestres{% endblock %}
+{% block content %}
+<h1>Semestres</h1>
+<p><a href="{% url 'semestre:nuevo' %}" class="btn">Nuevo Semestre</a></p>
+
+<table>
+  <thead><tr><th>Nombre</th><th>Inicio</th><th>Fin</th><th>Activo</th><th>Acciones</th></tr></thead>
+  <tbody>
+  {% for s in semestres %}
+    <tr>
+      <td>{{ s.nombre }}</td>
+      <td>{{ s.fecha_inicio }}</td>
+      <td>{{ s.fecha_fin }}</td>
+      <td>{{ s.activo }}</td>
+      <td><a href="{% url 'semestre:borrar' s.pk %}">Borrar</a></td>
+    </tr>
+  {% empty %}
+    <tr><td colspan="5">No hay semestres</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

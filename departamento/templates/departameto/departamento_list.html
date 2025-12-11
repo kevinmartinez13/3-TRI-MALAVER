@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Departamentos{% endblock %}
+{% block content %}
+<h1>Departamentos</h1>
+<p><a class="btn" href="{% url 'departamento:nuevo' %}">Nuevo Departamento</a></p>
+
+<table>
+  <thead><tr><th>Código</th><th>Nombre</th><th>Acciones</th></tr></thead>
+  <tbody>
+  {% for d in departamentos %}
+    <tr>
+      <td>{{ d.codigo }}</td>
+      <td>{{ d.nombre }}</td>
+      <td>
+        <a href="{% url 'departamento:borrar' d.pk %}">Borrar</a>
+      </td>
+    </tr>
+  {% empty %}
+    <tr><td colspan="3">No hay departamentos</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Mi Proyecto{% endblock %}</title>
+</head>
+<body>
+  {% if messages %}
+    <ul>
+      {% for m in messages %}
+        <li>{{ m }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  <nav>
+    <a href="{% url 'aula:listar' %}">Aulas</a> |
+    <a href="{% url 'aula:crear' %}">Crear Aula</a>
+  </nav>
+
+  <hr>
+  {% block content %}{% endblock %}
+</body>
+</html>

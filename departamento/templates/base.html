@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Sistema Académico{% endblock %}</title>
+
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        header { margin-bottom: 20px; }
+        nav a { margin-right: 15px; text-decoration: none; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        table, th, td { border: 1px solid #ccc; }
+        th, td { padding: 8px; text-align: left; }
+        .btn { background: #4CAF50; color: white; padding: 6px 10px; text-decoration: none; border-radius: 4px; }
+        .btn-danger { background: #c0392b; color: white; padding: 6px 10px; border-radius: 4px; text-decoration: none; }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Sistema Académico</h1>
+
+    <nav>
+        <a href="/departamento/">Departamentos</a>
+        <a href="/curso/">Cursos</a>
+        <a href="/clasesesion/">Sesiones</a>
+        <a href="/aula/">Aulas</a>
+        <a href="/calificacion/">Calificaciones</a>
+    </nav>
+</header>
+
+<hr>
+
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+
+</body>
+</html>

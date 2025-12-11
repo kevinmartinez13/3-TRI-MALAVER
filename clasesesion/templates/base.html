@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Clase Sesión{% endblock %}</title>
+
+    <!-- Estilos simples, puedes personalizar -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8f9fa;
+            margin: 0;
+        }
+        nav {
+            background: #343a40;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #0d6efd;
+        }
+        .container {
+            padding: 20px;
+        }
+        footer {
+            background: #343a40;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 40px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <a href="/">Inicio</a>
+        <a href="/clasesesion/">Sesiones</a>
+        <a href="/clasesesion/nuevo/">Nueva Sesión</a>
+    </nav>
+
+    <!-- CONTENIDO -->
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Proyecto Malaver — Clase Sesión</p>
+    </footer>
+
+</body>
+</html>

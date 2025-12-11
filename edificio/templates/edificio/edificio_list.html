@@ -1,0 +1,21 @@
+    {% extends "base.html" %}
+{% block title %}Edificios{% endblock %}
+{% block content %}
+<h1>Edificios</h1>
+<p><a href="{% url 'edificio:nuevo' %}" class="btn">Nuevo Edificio</a></p>
+
+<table>
+  <thead><tr><th>Nombre</th><th>Dirección</th><th>Acciones</th></tr></thead>
+  <tbody>
+  {% for e in edificios %}
+    <tr>
+      <td>{{ e.nombre }}</td>
+      <td>{{ e.direccion }}</td>
+      <td><a href="{% url 'edificio:borrar' e.pk %}">Borrar</a></td>
+    </tr>
+  {% empty %}
+    <tr><td colspan="3">No hay edificios</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

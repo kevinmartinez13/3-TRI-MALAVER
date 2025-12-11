@@ -1,0 +1,40 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Mi Proyecto{% endblock %}</title>
+
+  {# CSS propio o Bootstrap si lo usas #}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+  {# Mensajes (mejor con clases por tipo) #}
+  {% if messages %}
+    <ul aria-live="polite" class="messages">
+      {% for m in messages %}
+        <li class="{{ m.tags }}">{{ m }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  <nav>
+    <a href="{% url 'aula:listar' %}">Aulas</a> |
+    <a href="{% url 'aula:crear' %}">Crear Aula</a>
+  </nav>
+
+  <hr>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  {# Scripts comunes #}
+  <script src="{% static 'js/main.js' %}"></script>
+  {% block extra_scripts %}{% endblock %}
+</body>
+</html>
+}
+

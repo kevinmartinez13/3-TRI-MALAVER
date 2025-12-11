@@ -5,4 +5,8 @@ class Semestre(models.Model):
     fecha_inicio = models.DateField()
     fecha_fin = models.DateField()
     activo = models.BooleanField(default=False)
-    def __str__(self): return self.nombre
+
+    def __str__(self):
+        return self.nombre
+
+

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Calificaciones{% endblock %}
+{% block content %}
+  <h2>Calificaciones</h2>
+  <a href="{% url 'calificacion:create' %}">Crear nueva</a>
+  <ul>
+    {% for c in calificaciones %}
+      <li>
+        <a href="{% url 'calificacion:detail' c.pk %}">{{ c }}</a>
+        — <a href="{% url 'calificacion:delete' c.pk %}">Borrar</a>
+      </li>
+    {% empty %}
+      <li>No hay calificaciones aún.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

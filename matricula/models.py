@@ -9,4 +9,5 @@ class Matricula(models.Model):
         unique_together = ('estudiante', 'clase_sesion')
         verbose_name = "Matrícula"
 
-    def __str__(self): return f"Matrícula de {self.estudiante_id}"
+    def __str__(self):
+        return f"Matrícula de {self.estudiante_id}"

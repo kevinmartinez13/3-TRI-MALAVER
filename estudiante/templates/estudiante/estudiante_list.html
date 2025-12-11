@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Estudiantes{% endblock %}
+{% block content %}
+<h1>Estudiantes</h1>
+<p><a class="btn" href="{% url 'estudiante:nuevo' %}">Nuevo Estudiante</a></p>
+
+<table>
+  <thead>
+    <tr><th>Matrícula</th><th>Apellido</th><th>Nombre</th><th>Email</th><th>Fecha Nac.</th><th>Acciones</th></tr>
+  </thead>
+  <tbody>
+  {% for e in estudiantes %}
+    <tr>
+      <td>{{ e.matricula_id }}</td>
+      <td>{{ e.apellido }}</td>
+      <td>{{ e.nombre }}</td>
+      <td>{{ e.email }}</td>
+      <td>{{ e.fecha_nacimiento }}</td>
+      <td><a href="{% url 'estudiante:borrar' e.pk %}">Borrar</a></td>
+    </tr>
+  {% empty %}
+    <tr><td colspan="6">No hay estudiantes</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

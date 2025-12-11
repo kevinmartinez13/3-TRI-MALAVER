@@ -6,4 +6,6 @@ class Profesor(models.Model):
     email = models.EmailField(unique=True)
     fecha_contratacion = models.DateField()
     departamento = models.ForeignKey('departamento.Departamento', on_delete=models.SET_NULL, null=True)
-    def __str__(self): return f"{self.apellido}, {self.nombre}"
+
+    def __str__(self):
+        return f"{self.apellido}, {self.nombre}"

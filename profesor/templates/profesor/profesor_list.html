@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Profesores{% endblock %}
+{% block content %}
+<h1>Profesores</h1>
+<p><a class="btn" href="{% url 'profesor:nuevo' %}">Nuevo Profesor</a></p>
+
+<table>
+  <thead><tr><th>Apellido</th><th>Nombre</th><th>Email</th><th>Departamento</th><th>Contratación</th><th>Acciones</th></tr></thead>
+  <tbody>
+  {% for p in profesores %}
+    <tr>
+      <td>{{ p.apellido }}</td>
+      <td>{{ p.nombre }}</td>
+      <td>{{ p.email }}</td>
+      <td>{{ p.departamento }}</td>
+      <td>{{ p.fecha_contratacion }}</td>
+      <td><a href="{% url 'profesor:borrar' p.pk %}">Borrar</a></td>
+    </tr>
+  {% empty %}
+    <tr><td colspan="6">No hay profesores</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
+

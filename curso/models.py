@@ -6,4 +6,6 @@ class Curso(models.Model):
     descripcion = models.TextField(blank=True)
     creditos = models.PositiveIntegerField(default=3)
     departamento = models.ForeignKey('departamento.Departamento', on_delete=models.CASCADE)
-    def __str__(self): return f"{self.codigo}: {self.titulo}"
+
+    def __str__(self):
+        return f"{self.codigo}: {self.titulo}"

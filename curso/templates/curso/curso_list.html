@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Cursos{% endblock %}
+{% block content %}
+<h1>Cursos</h1>
+<p><a class="btn" href="{% url 'curso:curso_nuevo' %}">Nuevo Curso</a></p>
+
+<table>
+  <thead><tr><th>Código</th><th>Título</th><th>Departamento</th><th>Créditos</th><th>Acciones</th></tr></thead>
+  <tbody>
+  {% for c in cursos %}
+    <tr>
+      <td>{{ c.codigo }}</td>
+      <td>{{ c.titulo }}</td>
+      <td>{{ c.departamento }}</td>
+      <td>{{ c.creditos }}</td>
+      <td>
+        <a href="{% url 'curso:curso_borrar' c.pk %}">Borrar</a>
+      </td>
+    </tr>
+  {% empty %}
+    <tr><td colspan="5">No hay cursos</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
+

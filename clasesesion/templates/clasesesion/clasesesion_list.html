@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Sesiones{% endblock %}
+{% block content %}
+<h1>Sesiones</h1>
+<p><a href="{% url 'clasesesion:sesion_nuevo' %}">Nueva sesión</a></p>
+<table>
+  <tr><th>Curso</th><th>Semestre</th><th>Profesor</th><th>Aula</th><th>Horario</th><th>Acciones</th></tr>
+  {% for s in sesiones %}
+  <tr>
+    <td>{{ s.curso }}</td>
+    <td>{{ s.semestre }}</td>
+    <td>{{ s.profesor }}</td>
+    <td>{{ s.aula }}</td>
+    <td>{{ s.horario_texto }}</td>
+    <td><a href="{% url 'clasesesion:sesion_borrar' s.pk %}">Borrar</a></td>
+  </tr>
+  {% empty %}
+  <tr><td colspan="6">No hay sesiones</td></tr>
+  {% endfor %}
+</table>
+{% endblock %}
